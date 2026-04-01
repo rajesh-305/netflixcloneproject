@@ -18,7 +18,7 @@ import static org.mockito.Mockito.when;
 class HomeServletTest {
 
     @Test
-    void doGet_setsExpectedAttributesAndForwardsToJsp() throws ServletException, IOException {
+        void doGetSetsExpectedAttributesAndForwardsToJsp() throws ServletException, IOException {
         HomeServlet servlet = new HomeServlet();
         HttpServletRequest request = mock(HttpServletRequest.class);
         HttpServletResponse response = mock(HttpServletResponse.class);
@@ -59,7 +59,7 @@ class HomeServletTest {
     }
 
     @Test
-    void doGet_setsNonEmptyContentLists() throws ServletException, IOException {
+        void doGetSetsNonEmptyContentLists() throws ServletException, IOException {
         HomeServlet servlet = new HomeServlet();
         HttpServletRequest request = mock(HttpServletRequest.class);
         HttpServletResponse response = mock(HttpServletResponse.class);

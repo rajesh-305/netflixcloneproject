@@ -4,6 +4,39 @@
     List<String> movies = (List<String>) request.getAttribute("movies");
     List<String> webSeries = (List<String>) request.getAttribute("webSeries");
     List<String> trending = (List<String>) request.getAttribute("trending");
+
+    if (movies == null) {
+        movies = List.of(
+                "Inception",
+                "Interstellar",
+                "The Dark Knight",
+                "Extraction",
+                "The Gray Man",
+                "Red Notice"
+        );
+    }
+
+    if (webSeries == null) {
+        webSeries = List.of(
+                "Stranger Things",
+                "Dark",
+                "Money Heist",
+                "Wednesday",
+                "The Witcher",
+                "Squid Game"
+        );
+    }
+
+    if (trending == null) {
+        trending = List.of(
+                "3 Body Problem",
+                "Lupin",
+                "Peaky Blinders",
+                "The Crown",
+                "Narcos",
+                "The Night Agent"
+        );
+    }
 %>
 <!DOCTYPE html>
 <html lang="en">
