@@ -24,12 +24,24 @@
     );
 
     List<String> trendingPosters = List.of(
+        "https://images.unsplash.com/photo-1517604931442-7e0c8ed2963c?auto=format&fit=crop&w=800&q=80",
+        "https://images.unsplash.com/photo-1505685296765-3a2736de412f?auto=format&fit=crop&w=800&q=80",
         "https://images.unsplash.com/photo-1478720568477-152d9b164e26?auto=format&fit=crop&w=800&q=80",
         "https://images.unsplash.com/photo-1501386761578-eac5c94b800a?auto=format&fit=crop&w=800&q=80",
-        "https://images.unsplash.com/photo-1505685296765-3a2736de412f?auto=format&fit=crop&w=800&q=80",
         "https://images.unsplash.com/photo-1533153993872-6a9e1b3d8f47?auto=format&fit=crop&w=800&q=80",
-        "https://images.unsplash.com/photo-1489599849927-2ee91cede3ba?auto=format&fit=crop&w=800&q=80",
-        "https://images.unsplash.com/photo-1517604931442-7e0c8ed2963c?auto=format&fit=crop&w=800&q=80"
+        "https://images.unsplash.com/photo-1522120692535-7c2f6f2f3f1d?auto=format&fit=crop&w=800&q=80"
+    );
+
+    List<String> spotlightTitles = List.of("Movies", "Series", "Trending");
+    List<String> spotlightDescriptions = List.of(
+        "High-impact action, sci-fi, and thrillers.",
+        "Mystery, drama, and binge-worthy originals.",
+        "What everyone is watching right now."
+    );
+    List<String> spotlightImages = List.of(
+        "https://images.unsplash.com/photo-1489599849927-2ee91cede3ba?auto=format&fit=crop&w=900&q=80",
+        "https://images.unsplash.com/photo-1522120692535-7c2f6f2f3f1d?auto=format&fit=crop&w=900&q=80",
+        "https://images.unsplash.com/photo-1517604931442-7e0c8ed2963c?auto=format&fit=crop&w=900&q=80"
     );
 
     if (movies == null) {
@@ -122,13 +134,33 @@
 </section>
 
 <main class="content">
+    <section class="spotlight-strip" aria-label="Browse content by category">
+        <% for (int i = 0; i < spotlightTitles.size(); i++) { %>
+        <article class="spotlight-card">
+            <img src="<%= spotlightImages.get(i) %>" alt="<%= spotlightTitles.get(i) %> spotlight thumbnail" loading="lazy" />
+            <div class="spotlight-content">
+                <span>Browse</span>
+                <h2><%= spotlightTitles.get(i) %></h2>
+                <p><%= spotlightDescriptions.get(i) %></p>
+            </div>
+        </article>
+        <% } %>
+    </section>
+
     <section id="movies">
-        <h2>Popular Movies</h2>
+        <div class="section-header">
+            <div>
+                <span class="section-kicker">Featured collection</span>
+                <h2>Popular Movies</h2>
+            </div>
+            <p>Blockbuster picks and action-heavy titles with stronger poster art.</p>
+        </div>
         <div class="card-row">
             <% for (int i = 0; i < movies.size(); i++) { %>
             <article class="card">
                 <img class="card-poster" src="<%= moviePosters.get(i % moviePosters.size()) %>" alt="<%= movies.get(i) %> poster" loading="lazy" />
                 <div class="card-body">
+                    <span class="card-label">Movie</span>
                     <h3><%= movies.get(i) %></h3>
                     <p>Action / Thriller</p>
                 </div>
@@ -138,12 +170,19 @@
     </section>
 
     <section id="series">
-        <h2>Web Series</h2>
+        <div class="section-header">
+            <div>
+                <span class="section-kicker">Binge picks</span>
+                <h2>Web Series</h2>
+            </div>
+            <p>Organized as a separate section so it feels like a true streaming rail.</p>
+        </div>
         <div class="card-row">
             <% for (int i = 0; i < webSeries.size(); i++) { %>
             <article class="card">
                 <img class="card-poster" src="<%= seriesPosters.get(i % seriesPosters.size()) %>" alt="<%= webSeries.get(i) %> poster" loading="lazy" />
                 <div class="card-body">
+                    <span class="card-label">Series</span>
                     <h3><%= webSeries.get(i) %></h3>
                     <p>Drama / Mystery</p>
                 </div>
@@ -153,12 +192,19 @@
     </section>
 
     <section id="trending">
-        <h2>Trending Now</h2>
+        <div class="section-header">
+            <div>
+                <span class="section-kicker">What’s hot</span>
+                <h2>Trending Now</h2>
+            </div>
+            <p>Improved thumbnails and a tighter layout for the fastest-moving titles.</p>
+        </div>
         <div class="card-row">
             <% for (int i = 0; i < trending.size(); i++) { %>
             <article class="card">
                 <img class="card-poster" src="<%= trendingPosters.get(i % trendingPosters.size()) %>" alt="<%= trending.get(i) %> poster" loading="lazy" />
                 <div class="card-body">
+                    <span class="card-label">Trending</span>
                     <h3><%= trending.get(i) %></h3>
                     <p>Top picks this week</p>
                 </div>
